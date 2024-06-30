@@ -263,7 +263,7 @@ function fm.generateMap(data)
 										if area == nil then
 											area = {{gridPixelSize * gridX, gridPixelSize * gridY}, {gridPixelSize * (gridX+1), gridPixelSize * (gridY+1)}}
 											connectTypeCount = fm.currentSurface.count_entities_filtered({ force=forces, area=area, type=fm.autorun.connect_types })
-											excludeCount = fm.currentSurface.count_entities_filtered({ force=forces, area=area, type={"player"} })
+											excludeCount = fm.currentSurface.count_entities_filtered({ force=forces, area=area, type=fm.autorun.exclude_types })
 										end
 										if  			  0 < fm.currentSurface.count_tiles_filtered({ force=forces, area=area, limit=1, name=fm.tilenames })
 											or connectTypeCount + excludeCount < fm.currentSurface.count_entities_filtered({ force=forces, area=area, limit=connectTypeCount+excludeCount+1 }) then
@@ -279,7 +279,7 @@ function fm.generateMap(data)
 									if scanRange < fm.autorun.mapInfo.options.ranges.connect then
 										if area == nil then
 											area = {{gridPixelSize * gridX, gridPixelSize * gridY}, {gridPixelSize * (gridX+1), gridPixelSize * (gridY+1)}}
-											excludeCount = fm.currentSurface.count_entities_filtered({ force=forces, area=area, type={"player"} })
+											excludeCount = fm.currentSurface.count_entities_filtered({ force=forces, area=area, type=fm.autorun.exclude_types })
 										end
 										if excludeCount < (connectTypeCount or fm.currentSurface.count_entities_filtered({ force=forces, area=area, limit=excludeCount+1, type=fm.autorun.connect_types })) then
 

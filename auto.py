@@ -310,6 +310,7 @@ def buildAutorun(args: Namespace, workFolder: Path, outFolder: Path, isFirstSnap
             around_build_range = {args.build_range},
             around_connect_range = {args.connect_range},
             connect_types = {{"lamp", "electric-pole", "radar", "straight-rail", "curved-rail", "rail-signal", "rail-chain-signal", "locomotive", "cargo-wagon", "fluid-wagon", "car"}},
+            exclude_types = {{"player"}},
             date = "{datetime.datetime.strptime(args.date, "%d/%m/%y").strftime("%d/%m/%y")}",
             surfaces = {surfaceString},
             name = "{str(outFolder) + "/"}",
